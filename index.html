@@ -1,29 +1,125 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>我的网站首页...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 余政王</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin: 2em 0;
+        }
+        .profile img {
+            border-radius: 50%;
+            margin-right: 2em;
+        }
+        .profile div {
+            max-width: 600px;
+        }
+        .section {
+            margin: 2em 0;
+        }
+        .section h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5em;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            background: white;
+            margin: 1em 0;
+            padding: 1em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
 </head>
-
 <body>
-<a href="https://docs.fuyeor.com/answer/8462.html" style="font-size:80px;color:#0781de;
-cursor: pointer;
-font-size: 140px;
-color: #0781de;
-cursor: pointer;
-color: rgb(118, 121, 224);
-position: absolute;
-z-index: 9999;
-border-radius: 5px;
-background: rgb(255, 255, 255);
-border: 0.1px solid rgb(238, 238, 238);
-box-shadow: rgb(0 0 0 / 7%) 0px 0px 0px 1px, rgb(0 0 0 / 12%) 0px 2px 3px 0px;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-text-decoration: none;">
-&nbsp;我的网站首页...&nbsp;<br>
-</a>
+
+<header>
+    <h1>余政王的个人主页</h1>
+</header>
+
+<div class="container">
+
+    <div class="profile">
+        <img src="profile.jpg" alt="余政王" width="150">
+        <div>
+            <h2>余政王</h2>
+            <p>你好！我是余政王，一名前端开发工程师，热爱编写优雅的代码和设计用户友好的界面。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>工作经验</h2>
+        <ul>
+            <li>
+                <h3>前端开发工程师 - 某某科技公司</h3>
+                <p>2020年5月 - 至今</p>
+                <p>负责公司的前端开发工作，包括网站的设计与实现，优化用户体验。</p>
+            </li>
+            <li>
+                <h3>前端开发实习生 - ABC公司</h3>
+                <p>2018年7月 - 2019年8月</p>
+                <p>参与多个项目的前端开发，积累了丰富的实战经验。</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>项目展示</h2>
+        <ul>
+            <li>
+                <h3>个人博客</h3>
+                <p>基于React和Node.js的个人博客，支持Markdown文章编辑和发布。</p>
+                <a href="https://github.com/yuzhengwang/blog">查看项目</a>
+            </li>
+            <li>
+                <h3>在线商店</h3>
+                <p>使用Vue.js和Firebase开发的在线商店，支持商品搜索、购物车和订单管理功能。</p>
+                <a href="https://github.com/yuzhengwang/online-store">查看项目</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>联系方式</h2>
+        <p>邮箱: yuzhengwang@example.com</p>
+        <p>GitHub: <a href="https://github.com/yuzhengwang">https://github.com/yuzhengwang</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yuzhengwang">https://www.linkedin.com/in/yuzhengwang</a></p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 余政王. 保留所有权利。</p>
+</footer>
+
 </body>
 </html>
-[Reference] https://answers.fuyeor.com/zh-hans/question/8462
