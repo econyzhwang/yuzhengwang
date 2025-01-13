@@ -38,6 +38,15 @@
             margin: auto;
             overflow: hidden;
         }
+        .profile {
+            display: flex;
+            align-items: flex-start;
+            margin: 2em 0;
+        }
+        .profile img {
+            border-radius: 50%;
+            margin-right: 2em;
+        }
         .content {
             display: none;
             margin: 2em 0;
@@ -72,6 +81,7 @@
     <a onclick="showTab('home')">HOME</a>
     <a onclick="showTab('research')">RESEARCH</a>
     <a onclick="showTab('teaching')">TEACHING</a>
+    <a onclick="showTab('hobby')">HOBBY</a>
 </nav>
 
 <div class="container">
@@ -80,10 +90,10 @@
             <img src="https://avatars.githubusercontent.com/u/77523299?s=400&u=30586698691a1fd9a2b1da7601fb65786bb05a9b&v=4" width="150">
             <div>
                 <h2>Yuzheng Wang (王煜正)</h2>
-                <p>I am a PhD candidate at School of Insurance and China Institute for Actuarial Science, Central University of Finance and Economics. </p>
-                <p>I am a visiting PhD student at Division of the Social Sciences, the University of Chicago. </p>
-                <p>My research interests span the fields of political economy, economic history, and insurance. </p>
-                <p>My recent research project focuses on the origins of financial organizations in China. </p>
+                <p>I am a PhD candidate at School of Insurance and China Institute for Actuarial Science, Central University of Finance and Economics.</p>
+                <p>I am a visiting PhD student at Division of the Social Sciences, the University of Chicago.</p>
+                <p>My research interests span the fields of political economy, economic history, and insurance.</p>
+                <p>My recent research project focuses on the origins of financial organizations in China.</p>
             </div>
         </div>
         <div class="section">
@@ -95,22 +105,64 @@
 
     <div id="research" class="content">
         <h2>Research</h2>
-        <p>My research focuses on the origins of financial organizations in China, exploring their historical development and implications for modern institutions. </p>
-        <ul>
-            <li>Research Area 1: Political economy of risk management.</li>
-            <li>Research Area 2: Economic history and state capacity in disaster management.</li>
-            <li>Research Area 3: Insurance systems and intergenerational equity.</li>
-        </ul>
+        <section>
+            <h3>Publications</h3>
+            <ul>
+                <li>
+                    <a href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CAPJ&dbname=CAPJLAST&filename=JRPL20240711007&uniplatform=OVERSEA&v=xKtRZOtZd_okoNkDMg8ICMQWEVyRko_O2LylypH3jji0-LRFyc820Z7tRpl10AEx">
+                        "The Impact of Long-Term Care Insurance on Family Intergenerational Transfers"
+                    </a> (with Zaigui Yang, and Naiqi Wang). 2024. Volume 16, Number 1. <i>Chinese Review of Financial Studies</i>.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Working Papers</h3>
+            <ul>
+                <li>
+                    <a href="http://dx.doi.org/10.2139/ssrn.4521305">
+                        "Godfather Politicians and Organized Violence: The Good, the Bad, and the Bloody"
+                    </a> (with Shuo Chen, Xinyu Fan, and Xuanyi Wang). 2024. Available at SSRN: 4521305. Submitted to <i>The Journal of Law and Economics</i>. <br>
+                    <a href="http://dx.doi.org/10.2139/ssrn.4521305">DOI:10.2139/ssrn.4521305</a>
+                </li>
+                <li>
+                    "Government Accountability and Pension Fund Financial Sustainability: Evidence from China’s Local Institutions" (with Zaigui Yang). 2024. Submitted to <i>Journal of Risk and Insurance</i>.
+                </li>
+                <li>
+                    "State Apparatus and Private Revenge in Pre-modern China: The Decline of Xiayi" (with Shuo Chen, Xinyu Fan, Bo Yang).
+                </li>
+                <li>
+                    "From Education to Revolution: Female Schooling and Women's Political Participation in Republic of China" (with Shuo Chen).
+                </li>
+            </ul>
+        </section>
     </div>
 
     <div id="teaching" class="content">
         <h2>Teaching</h2>
-        <p>I have teaching experience in the following areas:</p>
-        <ul>
-            <li>Introduction to Risk Management</li>
-            <li>Economic History of Financial Institutions</li>
-            <li>Insurance Systems and Policy Design</li>
-        </ul>
+        <section>
+            <h3>Teaching Experience</h3>
+            <ul>
+                <li>
+                    <strong>Big Data and Causal Inference Seminar</strong> <span style="float: right;">Autumn 2023</span><br>
+                    <span style="margin-left: 2em;">Teaching Assistant, Course for Graduate, with Prof. Sicheng Chen, Tsinghua University</span>
+                </li>
+                <li>
+                    <strong>Insurance Technology</strong> <span style="float: right;">Spring 2023</span><br>
+                    <span style="margin-left: 2em;">Teaching Assistant, Course for Graduate, with Prof. Hua Zhou, Central University of Finance and Economics</span>
+                </li>
+                <li>
+                    <strong>Camphor Western Plan</strong> <span style="float: right;">Summer 2022</span><br>
+                    <span style="margin-left: 2em;">Teaching Assistant, Course for Graduate, with Prof. Shilin Zheng, China Academy of Social Sciences</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="hobby" class="content">
+        <h2>Hobby</h2>
+        <p>Yuzheng Wang studied violin with his mother since childhood. At the age of ten, he studied violin with <a href="https://mp.weixin.qq.com/s/WmPnPnJRcwGvFcz1_Wlkcg">Prof. Ding Zhinuo</a>, of the Shanghai Conservatory of Music, for a total of twelve years. He has participated in the Shanghai Conservatory of Music's extracurricular string orchestra for elementary school students and children's choir, and was once the principal violin of the Central University of Finance and Economics Symphony Orchestra. He is now a member of the University of Chicago Chamber Orchestra. Currently, he is interested in Baroque violin performance.</p>
+        <p>If today is your birthday, then congratulations! You will receive a Happy Birthday song played on the violin!</p>
+        <iframe width="560" height="315" src="https://www.bilibili.com/video/BV1tK411W7zs?buvid=Z942779E0FF825C44137991AE12323838FE4&from_spmid=main.space-contribution.0.0&is_story_h5=false&mid=TruPx0g7d4i%2BbdNPkhMTrQ%3D%3D&plat_id=114&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=809B7A0B-CF40-4AAE-AA17-F596A079465E&share_source=WEIXIN&share_tag=s_i&timestamp=1736762147&unique_k=pJElkd6&up_id=453904796" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
 
