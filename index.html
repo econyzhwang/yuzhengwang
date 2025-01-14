@@ -26,6 +26,22 @@
             display: flex;
             justify-content: center;
             padding: 0.03125em 0;
+            position: relative;
+        }
+        nav::before, nav::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            transform: translateY(-50%);
+        }
+        nav::before {
+            left: 0;
+        }
+        nav::after {
+            right: 0;
         }
         nav a {
             color: black;
@@ -106,7 +122,7 @@
 <div class="container">
     <div id="home" class="content active">
         <div class="profile">
-            <img src="https://avatars.githubusercontent.com/u/77523299?s=400&u=30586698691a1fd9a2b1da7601fb65786bb05a9b&v=4" width="150">
+            <img src="https://avatars.githubusercontent.com/u/77523299?s=400&u=30586698691a1fd9a2b1da7601fb65786bb05a9b&v=4" style="border-radius: 50%; height: auto; max-height: 100%; margin-right: 2em;">
             <div>
                 <h2>Yuzheng Wang (王煜正)</h2>
                 <p>I am a PhD candidate at <a href="https://cias.cufe.edu.cn/yjygk/ActuaryProgram/ProgramProfile.htm">School of Insurance, China Institute for Actuarial Science</a>, <a href="https://en.cufe.edu.cn/About/Overview.htm">Central University of Finance and Economics</a>.</p>
