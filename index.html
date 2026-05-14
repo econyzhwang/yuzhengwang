@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人主页 - Yuzheng Wang (王煜正)</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,12 +15,14 @@
             background-color: #ffffff;
             color: #333;
         }
+
         header {
             background-color: #A52A2A;
             color: white;
             text-align: center;
             padding: 0.25em 0;
         }
+
         nav {
             background-color: white;
             color: black;
@@ -28,21 +31,27 @@
             padding: 0.03125em 0;
             position: relative;
         }
-        nav::before, nav::after {
+
+        nav::before,
+        nav::after {
             content: '';
             position: absolute;
             top: 50%;
-            width: calc(100% - 2em);
+            width: 100%;
             height: 1px;
-            background-color: #fafafa;
+            background-color: black;
+            transform: translateY(-50%);
             z-index: 1;
         }
+
         nav::before {
             left: 0;
         }
+
         nav::after {
             right: 0;
         }
+
         nav a {
             color: black;
             padding: 1em;
@@ -53,72 +62,113 @@
             z-index: 2;
             position: relative;
         }
+
         nav a:hover {
             background-color: #f2f2f2;
         }
-        nav::before, nav::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-            background-color: black;
-            transform: translateY(-50%);
-        }
-        nav::before {
-            left: 0;
-        }
-        nav::after {
-            right: 0;
-        }
-        nav a {
-            color: black;
-            padding: 1em;
-            text-decoration: none;
-            cursor: pointer;
-            font-size: 0.6em;
-        }
-        nav a:hover {
-            background-color: #f2f2f2;
-        }
+
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
+
         .profile {
             display: flex;
             align-items: flex-start;
             margin: 2em 0;
         }
+
         .profile img {
             border-radius: 50%;
             margin-right: 2em;
         }
+
         .content {
             display: none;
             margin: 2em 0;
         }
+
         .content.active {
             display: block;
         }
+
         a {
             color: inherit;
             text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .hobby-layout {
             text-align: center;
         }
+
         iframe {
             width: 100%;
             max-width: 560px;
             height: 320px;
             margin: auto;
         }
-        #research, #teaching, #hobby, #contact {
-        padding-left: 2em;
-        box-sizing: border-box;
+
+        #research,
+        #teaching,
+        #hobby,
+        #contact {
+            padding-left: 2em;
+            box-sizing: border-box;
         }
+
+        .research-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.8em;
+            flex-wrap: wrap;
+            margin: 1.5em 0 2em 0;
+        }
+
+        .research-tab {
+            border: none;
+            border-radius: 6px;
+            padding: 0.7em 1.2em;
+            background-color: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            font-size: 0.78em;
+            line-height: 1.5em;
+        }
+
+        .research-tab.active {
+            background-color: #A52A2A;
+            color: white;
+        }
+
+        .research-category {
+            display: none;
+        }
+
+        .research-category.active {
+            display: block;
+        }
+
+        .research-category h3 {
+            margin-top: 1.5em;
+            color: #A52A2A;
+        }
+
+        .research-category h4 {
+            margin-top: 1.4em;
+            margin-bottom: 0.4em;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .research-category ul {
+            margin-top: 0.3em;
+        }
+
         footer {
             text-align: center;
             padding: 0.25em 0;
@@ -127,6 +177,7 @@
             font-size: 0.6em;
         }
     </style>
+
     <script>
         function showTab(tabId) {
             const tabs = document.querySelectorAll('.content');
@@ -135,8 +186,25 @@
             });
             document.getElementById(tabId).classList.add('active');
         }
+
+        function showResearchCategory(categoryId, button) {
+            const categories = document.querySelectorAll('.research-category');
+            categories.forEach(category => {
+                category.classList.remove('active');
+            });
+
+            document.getElementById(categoryId).classList.add('active');
+
+            const buttons = document.querySelectorAll('.research-tab');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            button.classList.add('active');
+        }
     </script>
 </head>
+
 <body>
 
 <header>
@@ -152,50 +220,84 @@
 </nav>
 
 <div class="container">
+
     <div id="home" class="content active">
         <div class="profile">
-            <img src="https://avatars.githubusercontent.com/u/77523299?s=400&u=30586698691a1fd9a2b1da7601fb65786bb05a9b&v=4" width="150">
+            <img src="https://avatars.githubusercontent.com/u/77523299?s=400&u=30586698691a1fd9a2b1da7601fb65786bb05a9b&v=4" width="150" alt="Yuzheng Wang">
             <div>
                 <h2>Yuzheng Wang (王煜正)</h2>
-                <p>I am a Graduate Student in Economics Research Intensive Track at <a href="https://economics.uchicago.edu/">Kenneth C. Griffin Department of Economics</a>, <a href="https://www.uchicago.edu/">the University of Chicago</a>, and a PhD Candidate in Insurance and Actuarial Science at <a href="https://cias.cufe.edu.cn/info/1503/4514.htm">China Institute for Actuarial Science, Central University of Finance and Economics</a>.</p>
-                <p>My research explores the design, provision, and regulation of public, private, and informal insurance.</p>
-                <p>I study how societies manage risk and develop systems of insurance over time. Drawing on <a href="https://www.nber.org/programs-projects/programs-working-groups/public-economics?page=1&perPage=50">public economics</a>, <a href="https://insurance.princeton.edu/">financial economics of insurance</a>, and financial history, I focus on three interconnected areas: social insurance and cash transfer programs, life insurance markets and pension funds, and financial organization in history. Through both theoretical modeling and empirical analysis, my work investigates how risk-sharing arrangements—from imperial fiscal institutions to modern insurance systems—shape risk-resisting behavior and intergenerational insurance.</p>
+
+                <p>
+                    I am a Graduate Student in Economics Research Intensive Track at
+                    <a href="https://economics.uchicago.edu/">Kenneth C. Griffin Department of Economics</a>,
+                    <a href="https://www.uchicago.edu/">the University of Chicago</a>,
+                    and a PhD Candidate in Insurance and Actuarial Science at
+                    <a href="https://cias.cufe.edu.cn/info/1503/4514.htm">China Institute for Actuarial Science, Central University of Finance and Economics</a>.
+                </p>
+
+                <p>
+                    My research explores the design, provision, and regulation of public, private, and informal insurance.
+                </p>
+
+                <p>
+                    I study how societies manage risk and develop systems of insurance over time. Drawing on
+                    <a href="https://www.nber.org/programs-projects/programs-working-groups/public-economics?page=1&perPage=50">public economics</a>,
+                    <a href="https://insurance.princeton.edu/">financial economics of insurance</a>,
+                    and financial history, I focus on three interconnected areas: social insurance and cash transfer programs,
+                    life insurance markets and pension funds, and financial organization in history. Through both theoretical
+                    modeling and empirical analysis, my work investigates how risk-sharing arrangements—from imperial fiscal
+                    institutions to modern insurance systems—shape risk-resisting behavior and intergenerational insurance.
+                </p>
+
                 <div style="height: 100px;"></div>
             </div>
-        </div>
-    </div>
         </div>
     </div>
 
     <div id="research" class="content">
         <h2>Research</h2>
-        <section>
-            <h3>Publications</h3>
+
+        <div class="research-tabs">
+            <button class="research-tab active" onclick="showResearchCategory('public-insurance', this)">
+                Public Economics (Public Insurance)
+            </button>
+
+            <button class="research-tab" onclick="showResearchCategory('private-insurance', this)">
+                Financial Economics of Insurance (Private Insurance)
+            </button>
+
+            <button class="research-tab" onclick="showResearchCategory('informal-insurance', this)">
+                Economic History (Informal Insurance)
+            </button>
+        </div>
+
+        <section id="public-insurance" class="research-category active">
+            <h3>Public Economics (Public Insurance)</h3>
+
+            <h4>Publications</h4>
             <ul>
                 <li>
                     <a href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CAPJ&dbname=CAPJLAST&filename=JRPL20240711007&uniplatform=OVERSEA&v=xKtRZOtZd_okoNkDMg8ICMQWEVyRko_O2LylypH3jji0-LRFyc820Z7tRpl10AEx">
                         "The Impact of Long-Term Care Insurance on Family Intergenerational Transfers"
-                    </a> (with <a href="https://cias.cufe.edu.cn/English/Faculty/Faculty/Full_Professor/Zaigui_Yang.htm">Zaigui Yang</a>, and <a href="https://fass.nus.edu.sg/ecs/people/wang-naiqi/">Naiqi Wang</a>). 2024. Volume 16, Number 1. <i><a href="https://oversea.cnki.net/KNavi/JournalDetail?pcode=CJFD&pykm=JRPL&Year=&Issue=&uniplatform=OVERSEA&language=en">Chinese Review of Financial Studies</a></i>.
+                    </a>
+                    (with
+                    <a href="https://cias.cufe.edu.cn/English/Faculty/Faculty/Full_Professor/Zaigui_Yang.htm">Zaigui Yang</a>,
+                    and
+                    <a href="https://fass.nus.edu.sg/ecs/people/wang-naiqi/">Naiqi Wang</a>).
+                    2024. Volume 16, Number 1.
+                    <i>
+                        <a href="https://oversea.cnki.net/KNavi/JournalDetail?pcode=CJFD&pykm=JRPL&Year=&Issue=&uniplatform=OVERSEA&language=en">
+                            Chinese Review of Financial Studies
+                        </a>
+                    </i>.
                 </li>
             </ul>
-        </section>
-        <section>
-            <h3>Working Papers</h3>
+
+            <h4>Working Papers</h4>
             <ul>
                 <li>
-                    "Reputation, Liability Structure and Capital Strain" (with Hairuo Guo, Xianfu Jiao, and <a href="https://cias.cufe.edu.cn/info/1386/3475.htm">Sujin Zheng</a>).
-                </li>
-                <li>
-                    "From Narratives to Allocations: Hidden Frictions in Household Liquidity Management" (with Hairuo Guo).
-                </li>
-                <li>
-                    "The Emperor’s Tael: Government Commitment Failure and Fiscal Reform Fizzle" (with <a href="https://www.frankchenshuo.com/research.html">Shuo Chen</a>, <a href="http://www.xinyufanecon.com/">Xinyu Fan</a>, and <a href="https://scholar.google.com/citations?user=eXKSenMAAAAJ&hl=en">Yu Hao</a>).
-                </li>
-                <li>
-                    "Clan Culture and Rural Organization: Evidence from China’s Farmer Cooperatives" (with <a href="https://zhengweiyan.weebly.com/research.html">Zhengwei Yan</a>).
-                </li>
-                <li>
-                    "The Health Returns to Unconditional Cash Transfers: Evidence from China’s Old Age Allowance".  (with <a href="https://zhengweiyan.weebly.com/research.html">Zhengwei Yan</a>).
+                    "The Health Returns to Unconditional Cash Transfers: Evidence from China’s Old Age Allowance"
+                    (with <a href="https://zhengweiyan.weebly.com/research.html">Zhengwei Yan</a>).
                 </li>
                 <li>
                     "Endogenous Take-Up and the Optimal Design of Old Age Allowance".
@@ -205,68 +307,175 @@
                 </li>
             </ul>
         </section>
-        <section>
-            <h3>Working in Progress</h3>
+
+        <section id="private-insurance" class="research-category">
+            <h3>Financial Economics of Insurance (Private Insurance)</h3>
+
+            <h4>Publications</h4>
             <ul>
-                 <li>
+                <li>
+                    "Cultural Diversity and Household Risk Asset Allocation"
+                    (with Qian Wei).
+                    <i>China Journal of Economics</i>, forthcoming.
+                </li>
+            </ul>
+
+            <h4>Working Papers</h4>
+            <ul>
+                <li>
+                    "Reputation, Liability Structure and Capital Strain"
+                    (with Hairuo Guo, Xianfu Jiao, and
+                    <a href="https://cias.cufe.edu.cn/info/1386/3475.htm">Sujin Zheng</a>).
+                </li>
+                <li>
+                    "Protected Liquidity: Household Narratives and Portfolio Choice"
+                    (with Hairuo Guo).
+                </li>
+                <li>
                     "Capital Relief, Hidden Risk: Asset-Side Shadow Insurance".
+                </li>
+            </ul>
+        </section>
+
+        <section id="informal-insurance" class="research-category">
+            <h3>Economic History (Informal Insurance)</h3>
+
+            <h4>Publications</h4>
+            <ul>
+                <li>None yet.</li>
+            </ul>
+
+            <h4>Working Papers</h4>
+            <ul>
+                <li>
+                    "The Emperor’s Tael: Government Commitment Failure and Fiscal Reform Fizzle"
+                    (with
+                    <a href="https://www.frankchenshuo.com/research.html">Shuo Chen</a>,
+                    <a href="http://www.xinyufanecon.com/">Xinyu Fan</a>,
+                    and
+                    <a href="https://scholar.google.com/citations?user=eXKSenMAAAAJ&hl=en">Yu Hao</a>).
+                </li>
+                <li>
+                    "Clan Culture and Rural Organization: Evidence from China’s Farmer Cooperatives"
+                    (with <a href="https://zhengweiyan.weebly.com/research.html">Zhengwei Yan</a>).
                 </li>
                 <li>
                     "Beyond the Bank Lending Channel: Insurance Companies as Liquidity Providers in the Great Depression".
                 </li>
             </ul>
         </section>
+
         <div style="height: 30px;"></div>
-    </div>
     </div>
 
     <div id="teaching" class="content">
         <h2>Teaching</h2>
+
         <section>
             <ul>
                 <li>
-                    <a href="https://www.coursicle.com/uchicago/courses/ECON/11010/"><strong>Introduction to Statistical Methods in Economics</strong></a> <span style="float: right;">Spring 2026</span><br>
-                    <span style="margin-left: 2em;">Teaching Assistant, Undergraduate Course, with <a href="https://economics.uchicago.edu/directory/murilo-ramos">Prof. Murilo Ramos</a>, <a href="https://economics.uchicago.edu/">The University of Chicago</a></span>
+                    <a href="https://www.coursicle.com/uchicago/courses/ECON/11010/">
+                        <strong>Introduction to Statistical Methods in Economics</strong>
+                    </a>
+                    <span style="float: right;">Spring 2026</span><br>
+                    <span style="margin-left: 2em;">
+                        Teaching Assistant, Undergraduate Course, with
+                        <a href="https://economics.uchicago.edu/directory/murilo-ramos">Prof. Murilo Ramos</a>,
+                        <a href="https://economics.uchicago.edu/">The University of Chicago</a>
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://www.coursehero.com/sitemap/schools/778-University-Of-Chicago/courses/10587107-ECON11020/"><strong>Introduction to Econometrics</strong></a> <span style="float: right;">Winter 2026</span><br>
-                    <span style="margin-left: 2em;">Teaching Assistant, Undergraduate Course, with <a href="https://economics.uchicago.edu/directory/murilo-ramos">Prof. Murilo Ramos</a>, <a href="https://economics.uchicago.edu/">The University of Chicago</a></span>
+                    <a href="https://www.coursehero.com/sitemap/schools/778-University-Of-Chicago/courses/10587107-ECON11020/">
+                        <strong>Introduction to Econometrics</strong>
+                    </a>
+                    <span style="float: right;">Winter 2026</span><br>
+                    <span style="margin-left: 2em;">
+                        Teaching Assistant, Undergraduate Course, with
+                        <a href="https://economics.uchicago.edu/directory/murilo-ramos">Prof. Murilo Ramos</a>,
+                        <a href="https://economics.uchicago.edu/">The University of Chicago</a>
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://mp.weixin.qq.com/s/W4sU6goDX8quV_OkoptmXw"><strong>Big Data and Causal Inference Seminar</strong></a> <span style="float: right;">Autumn 2023</span><br>
-                    <span style="margin-left: 2em;">Teaching Assistant, Graduate Course, with <a href="https://www.sppm.tsinghua.edu.cn/english/info/1130/2365.htm">Prof. Sicheng Chen</a>, <a href="https://www.tsinghua.edu.cn/en/index.htm">Tsinghua University</a></span>
+                    <a href="https://mp.weixin.qq.com/s/W4sU6goDX8quV_OkoptmXw">
+                        <strong>Big Data and Causal Inference Seminar</strong>
+                    </a>
+                    <span style="float: right;">Autumn 2023</span><br>
+                    <span style="margin-left: 2em;">
+                        Teaching Assistant, Graduate Course, with
+                        <a href="https://www.sppm.tsinghua.edu.cn/english/info/1130/2365.htm">Prof. Sicheng Chen</a>,
+                        <a href="https://www.tsinghua.edu.cn/en/index.htm">Tsinghua University</a>
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://ins.cufe.edu.cn/info/1033/5722.htm"><strong>Insurance Technology</strong></a> <span style="float: right;">Spring 2023</span><br>
-                    <span style="margin-left: 2em;">Teaching Assistant, Graduate Course, with <a href="https://cias.cufe.edu.cn/English/Faculty/Faculty/Full_Professor/Hua_ZHOU.htm">Prof. Hua Zhou</a>, <a href="https://en.cufe.edu.cn/About/Overview.htm">Central University of Finance and Economics</a></span>
+                    <a href="https://ins.cufe.edu.cn/info/1033/5722.htm">
+                        <strong>Insurance Technology</strong>
+                    </a>
+                    <span style="float: right;">Spring 2023</span><br>
+                    <span style="margin-left: 2em;">
+                        Teaching Assistant, Graduate Course, with
+                        <a href="https://cias.cufe.edu.cn/English/Faculty/Faculty/Full_Professor/Hua_ZHOU.htm">Prof. Hua Zhou</a>,
+                        <a href="https://en.cufe.edu.cn/About/Overview.htm">Central University of Finance and Economics</a>
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://mp.weixin.qq.com/s/QJDSGH2Jz-IDn99UgLSerw"><strong>Research Seminar</strong></a> <span style="float: right;">Summer 2022</span><br>
-                    <span style="margin-left: 2em;">Teaching Assistant, Graduate Course, with <a href="http://iqte.cssn.cn/yjjg/xsqk/sljjjsjjyj/cbbj/202101/t20210108_5243511.shtml">Prof. Shilin Zheng</a>, <a href="http://casseng.cssn.cn/sky_about/aboutcass/">China Academy of Social Sciences</a></span>
+                    <a href="https://mp.weixin.qq.com/s/QJDSGH2Jz-IDn99UgLSerw">
+                        <strong>Research Seminar</strong>
+                    </a>
+                    <span style="float: right;">Summer 2022</span><br>
+                    <span style="margin-left: 2em;">
+                        Teaching Assistant, Graduate Course, with
+                        <a href="http://iqte.cssn.cn/yjjg/xsqk/sljjjsjjyj/cbbj/202101/t20210108_5243511.shtml">Prof. Shilin Zheng</a>,
+                        <a href="http://casseng.cssn.cn/sky_about/aboutcass/">China Academy of Social Sciences</a>
+                    </span>
                 </li>
             </ul>
         </section>
+
         <div style="height: 100px;"></div>
-    </div>
     </div>
 
     <div id="hobby" class="content">
         <h2>Hobby</h2>
-        <p>Yuzheng Wang began studying violin with his mother in his childhood. At the age of ten, he started studying with <a href="https://mp.weixin.qq.com/s/WmPnPnJRcwGvFcz1_Wlkcg">Prof. Zhinuo Ding</a>, of the Shanghai Conservatory of Music, for twelve years. He was a member of the Shanghai Conservatory of Music's extracurricular string orchestra for elementary school students and children's choir. Later, he served as the concertmaster of the CUEF Symphony Orchestra, and the principal second violin of the <a href="https://music.uchicago.edu/performance-opportunities/instrumental/university-chamber">UChicago Chamber Orchestra</a>. Now he is a member of the <a href="https://music.uchicago.edu/performance-opportunities/instrumental/university-symphony">UChicago Symphony Orchestra</a>.  </p>
+
+        <p>
+            Yuzheng Wang began studying violin with his mother in his childhood. At the age of ten, he started studying with
+            <a href="https://mp.weixin.qq.com/s/WmPnPnJRcwGvFcz1_Wlkcg">Prof. Zhinuo Ding</a>,
+            of the Shanghai Conservatory of Music, for twelve years. He was a member of the Shanghai Conservatory of Music's
+            extracurricular string orchestra for elementary school students and children's choir. Later, he served as the
+            concertmaster of the CUEF Symphony Orchestra, and the principal second violin of the
+            <a href="https://music.uchicago.edu/performance-opportunities/instrumental/university-chamber">UChicago Chamber Orchestra</a>.
+            Now he is a member of the
+            <a href="https://music.uchicago.edu/performance-opportunities/instrumental/university-symphony">UChicago Symphony Orchestra</a>.
+        </p>
+
         <div class="hobby-layout">
-            <p>If it's your birthday today, congratulations! To celebrate, here is a violin performance of the "Happy Birthday" song just for you.</p>
-            <iframe src="https://www.bilibili.com/video/BV1tK411W7zs?buvid=Z942779E0FF825C44137991AE12323838FE4&from_spmid=main.space-contribution.0.0&is_story_h5=false&mid=TruPx0g7d4i%2BbdNPkhMTrQ%3D%3D&plat_id=114&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=809B7A0B-CF40-4AAE-AA17-F596A079465E&share_source=WEIXIN&share_tag=s_i&timestamp=1736762147&unique_k=pJElkd6&up_id=453904796" frameborder="0" allowfullscreen></iframe>
+            <p>
+                If it's your birthday today, congratulations! To celebrate, here is a violin performance of the
+                "Happy Birthday" song just for you.
+            </p>
+
+            <iframe
+                src="https://www.bilibili.com/video/BV1tK411W7zs?buvid=Z942779E0FF825C44137991AE12323838FE4&from_spmid=main.space-contribution.0.0&is_story_h5=false&mid=TruPx0g7d4i%2BbdNPkhMTrQ%3D%3D&plat_id=114&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=809B7A0B-CF40-4AAE-AA17-F596A079465E&share_source=WEIXIN&share_tag=s_i&timestamp=1736762147&unique_k=pJElkd6&up_id=453904796"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 
     <div id="contact" class="content">
         <h2>Contact Information</h2>
-        <p>Yuzheng Wang<br>
-        <p>Email: <a href="mailto:yuzhengwang@uchicago.edu">yuzhengwang@uchicago.edu</a><br>
-        <p>Section Time: Friday 3:30-4:20pm<br>
-        <p>Section Location: SHFE 146<br>
-        <p>Office Hours: Thursday 5:00-6:00pm, Friday 4:30-5:30pm<br>
+
+        <p>Yuzheng Wang</p>
+        <p>Email: <a href="mailto:yuzhengwang@uchicago.edu">yuzhengwang@uchicago.edu</a></p>
+        <p>Section Time: Friday 3:30-4:20pm</p>
+        <p>Section Location: SHFE 146</p>
+        <p>Office Hours: Thursday 5:00-6:00pm, Friday 4:30-5:30pm</p>
     </div>
+
 </div>
 
 <footer>
