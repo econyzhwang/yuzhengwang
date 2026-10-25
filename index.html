@@ -121,52 +121,174 @@
             box-sizing: border-box;
         }
 
-        .research-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.8em;
-            flex-wrap: wrap;
-            margin: 1.5em 0 2em 0;
+        /* Research: a centered academic layout, with left-aligned paper citations. */
+        .container:has(#research.active) {
+            width: calc(100% - 48px);
+            max-width: 1280px;
+            overflow: visible;
         }
 
-        .research-tab {
+        #research {
+            padding: 0;
+            margin: 2.4em auto 3.6em;
+            font-family: Arial, sans-serif;
+            line-height: 1.55;
+        }
+
+        #research > h2 {
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 29px;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.4px;
+        }
+
+        #research .research-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 24px auto 32px;
+        }
+
+        #research .research-tab {
+            appearance: none;
             border: none;
             border-radius: 6px;
-            padding: 0.7em 1.2em;
+            padding: 10px 16px;
             background-color: #f0f0f0;
             color: #333;
             cursor: pointer;
-            font-size: 0.78em;
-            line-height: 1.5em;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.5;
+            transition: background-color 0.15s ease;
         }
 
-        .research-tab.active {
+        #research .research-tab:hover:not(.active) {
+            background-color: #e6e6e6;
+        }
+
+        #research .research-tab.active {
             background-color: #A52A2A;
             color: white;
         }
 
-        .research-category {
-            display: none;
+        #research .research-tab:focus-visible {
+            outline: 2px solid #A52A2A;
+            outline-offset: 3px;
         }
 
-        .research-category.active {
+        #research .research-category {
+            display: none;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #research .research-category.active {
             display: block;
         }
 
-        .research-category h3 {
-            margin-top: 1.5em;
-            color: #A52A2A;
+        /* The selected tab already names the category: avoid repeating that heading. */
+        #research .research-category > h3 {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
-        .research-category h4 {
-            margin-top: 1.4em;
-            margin-bottom: 0.4em;
-            font-size: 1em;
+        #research .research-category h4 {
+            margin: 23px 0 8px;
+            padding: 0 0 10px;
+            border-bottom: 1px solid #dedede;
+            color: #742828;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        #research .research-category ul {
+            padding: 0;
+            margin: 0 0 26px;
+            list-style: none;
+        }
+
+        #research .research-category li,
+        #research .research-category li.single-line-citation {
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 9px 2px 9px 17px;
+            border-bottom: 1px solid #f1f1f1;
             color: #333;
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: clamp(12px, 1.22vw, 16px);
+            font-weight: 400;
+            line-height: 1.65;
+            letter-spacing: 0;
+            white-space: nowrap;
         }
 
-        .research-category ul {
-            margin-top: 0.3em;
+        #research .research-category li::before {
+            content: '•';
+            position: absolute;
+            left: 1px;
+            top: 9px;
+            color: #A52A2A;
+            font-size: 14px;
+        }
+
+        #research .research-category li:last-child {
+            border-bottom: 0;
+        }
+
+        #research .research-category li a:hover {
+            color: #8b2424;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 980px) {
+            .container:has(#research.active) {
+                width: 92%;
+            }
+
+            #research {
+                padding: 0;
+                margin: 1.8em auto 2.7em;
+            }
+
+            #research > h2 {
+                font-size: 26px;
+            }
+
+            #research .research-tabs {
+                gap: 8px;
+                margin: 18px auto 25px;
+            }
+
+            #research .research-tab {
+                font-size: 12px;
+                padding: 9px 12px;
+            }
+
+            #research .research-category li,
+            #research .research-category li.single-line-citation {
+                font-size: 15px;
+                line-height: 1.6;
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
         }
 
         footer {
@@ -278,6 +400,21 @@
             <h4>Publications</h4>
             <ul>
                 <li>
+                    <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/puar.70221">
+                        "Artificial Intelligence and Punctuated Equilibrium: Shaping Government Attention in the Digital Age"
+                    </a>
+                    (with <a href="https://www.frankchenshuo.com/">Shuo Chen</a>, and <a href="https://liyiran.weebly.com/">Yiran Li</a>).
+                    <i><a href="https://onlinelibrary.wiley.com/journal/15406210">Public Administration Review</a></i>.
+                    2026.
+                </li>
+                <li>
+                    <a href="https://hfri.phbs.pku.edu.cn/info/1621/18551.htm">
+                        "The Impact of the Delayed Retirement Reform on the Three Pillars of the Pension System"
+                    </a>
+                    (with Zhi Qiao). 2026. Number 4.
+                    <i><a href="https://hfri.phbs.pku.edu.cn/info/1621/18551.htm">PKU Financial Review</a></i>.
+                </li>
+                <li class="single-line-citation">
                     <a href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CAPJ&dbname=CAPJLAST&filename=JRPL20240711007&uniplatform=OVERSEA&v=xKtRZOtZd_okoNkDMg8ICMQWEVyRko_O2LylypH3jji0-LRFyc820Z7tRpl10AEx">
                         "The Impact of Long-Term Care Insurance on Family Intergenerational Transfers"
                     </a>
@@ -286,27 +423,28 @@
                     and
                     <a href="https://fass.nus.edu.sg/ecs/people/wang-naiqi/">Naiqi Wang</a>).
                     2024. Volume 16, Number 1.
-                    <i><a href="https://oversea.cnki.net/KNavi/JournalDetail?pcode=CJFD&pykm=JRPL&Year=&Issue=&uniplatform=OVERSEA&language=en">
+                    <i><a href="https://jrpl.ajcass.com">
                             Chinese Review of Financial Studies</a></i>.
                 </li>
             </ul>
 
             <h4>Working Papers</h4>
             <ul>
-                <li>"Artificial Intelligence and Punctuated Equilibrium: Shaping Government Attention in the Digital Age"
-                    (with <a href="https://www.frankchenshuo.com/">Shuo Chen</a>, and <a href="https://liyiran.weebly.com/">Yiran Li</a>). R&R at                     
-                    <i><a href="https://onlinelibrary.wiley.com/journal/15406210">Public Administration Review</a></i>.
-                </li>
-                <li>
-                    "The Health Returns to Unconditional Cash Transfers: Evidence from China’s Old Age Allowance"
+                <li class="single-line-citation">
+                    "The Health Effects of Unconditional Cash Transfers: Evidence from China’s Old Age Allowance"
                     (with <a href="https://zhengweiyan.weebly.com/research.html">Zhengwei Yan</a>). R&R at                     
                     <i><a href="https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization">Journal of Economic Behavior and Organization</a></i>.
                 </li>
                 <li>
-                    "Endogenous Take-Up and the Optimal Design of Old Age Allowance".
+                    "Endogenous Take-Up and the Optimal Design of Old Age Allowance". Under review.
                 </li>
                 <li>
-                    "Old Age Allowance and Intergenerational Insurance".
+                    <a href="https://econ.ucsb.edu/people/students/yanfei-yin">"From Standing in Line to Logging In: Digital Access and Unequal Gains in Health Care Utilization"</a>
+                    (with <a href="https://econ.ucsb.edu/people/students/yanfei-yin">Yanfei Yin</a>). Under review.
+                </li>
+                <li>
+                    <a href="https://economics.ucdavis.edu/people/anran-liu">"The Hospital Premium: Patient Sorting and Inpatient Spending in China"</a>
+                    (with <a href="https://economics.ucdavis.edu/people/anran-liu">Anran Liu</a>). Under review.
                 </li>
             </ul>
         </section>
